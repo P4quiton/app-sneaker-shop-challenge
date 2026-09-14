@@ -1,8 +1,8 @@
+import '../models/game.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/cart_item.dart';
 import '../models/cart.dart';
-import '../models/shoe.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -17,7 +17,7 @@ class CartPage extends StatelessWidget {
           children: [
             // heading
             const Text(
-              'My Cart',
+              'Mi Carrito',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24
@@ -31,10 +31,10 @@ class CartPage extends StatelessWidget {
                 itemCount: value.getUserCart().length,
                 itemBuilder: (context, index) {
                   // get individual shoe
-                  Shoe individualShoe = value.getUserCart()[index];
+                  Game individualGame = value.getUserCart()[index];
 
                   // return the cart item
-                  return CartItem(shoe: individualShoe);
+                  return CartItem(game: individualGame);
                 },
               ),
             )

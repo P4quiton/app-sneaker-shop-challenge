@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/cart.dart';
-import '../models/shoe.dart';
+import '../models/game.dart';
+
 
 class CartItem extends StatefulWidget {
-  Shoe shoe;
-  CartItem({
+  final Game game;
+  const CartItem({
     super.key,
-    required this.shoe
+    required this.game
   });
 
 
@@ -18,7 +19,7 @@ class CartItem extends StatefulWidget {
 class _CartItemState extends State<CartItem> {
   // remove item from cart
   void removeItemFromCart(){
-    Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.shoe);
+    Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.game);
   }
 
   @override
@@ -30,9 +31,14 @@ class _CartItemState extends State<CartItem> {
       ),
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: Image.asset(widget.shoe.price),
-        title: Text(widget.shoe.name),
-        subtitle: Text(widget.shoe.price),
+        leading: Image.asset(
+          widget.game.imagePath,
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
+        ),
+        title: Text(widget.game.name),
+        subtitle: Text(widget.game.price),
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: removeItemFromCart,

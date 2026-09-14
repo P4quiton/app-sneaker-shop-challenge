@@ -35,8 +35,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      bottomNavigationBar: MyBottonNav(
-        onTabChange: (index) => navigateBottomBar(index),
+      bottomNavigationBar: MyBottomNav(
+        selectedIndex: _selectedIndex,
+        onTabChange: navigateBottomBar,
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -64,11 +65,26 @@ class _HomePageState extends State<HomePage> {
             Column(
               children: [
                 // logo
-                DrawerHeader(
-                  child: Image.asset(
-                    'lib/images/nike.png',
-                    color: Colors.white,
-                  )
+                const DrawerHeader(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.sports_esports,
+                        color: Colors.white,
+                        size: 70,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'GameZone',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
                 Padding(

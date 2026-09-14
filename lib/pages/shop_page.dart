@@ -1,9 +1,8 @@
 import 'package:provider/provider.dart';
-
 import '../models/cart.dart';
-import '../models/shoe.dart';
+import '../models/game.dart';
 import 'package:flutter/material.dart';
-import '../components/shoe_tile.dart';
+import '../components/game_tile.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -15,15 +14,15 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
 
   // add shoe to cart
-  void addShoeToCart(Shoe shoe){
-    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+  void addShoeToCart(Game game){
+    Provider.of<Cart>(context, listen: false).addItemToCart(game);
 
     // alert the user, shoe successfully added
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Successfully added!'),
-        content: Text('Check your cart'),
+        title: Text('Agregado correctamente!'),
+        content: Text('Mira tu carrito'),
       )
     );
   }
@@ -44,7 +43,7 @@ class _ShopPageState extends State<ShopPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Search',
+                  'Buscar videojuego',
                   style: TextStyle(color: Colors.grey),
                 ),
                 Icon(
@@ -59,7 +58,7 @@ class _ShopPageState extends State<ShopPage> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 25.0),
             child: Text(
-              'everyone flies... some fly longer than others',
+              'Encuentra tu próxima aventura',
               style: TextStyle(
                 color: Colors.grey[600]
               ),
@@ -74,7 +73,7 @@ class _ShopPageState extends State<ShopPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: const [
                 Text(
-                  'Hot Picks 🔥',
+                  'Juegos destacados 🎮',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
@@ -96,16 +95,16 @@ class _ShopPageState extends State<ShopPage> {
           // list of shoes for sale
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: value.getGameList().length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 // get a shoe from list
-                Shoe shoe = value.getShoeList()[index];
+                Game game = value.getGameList()[index];
 
                 // return the shoe
-                return ShoeTile(
-                  shoe: shoe,
-                  onTap: () => addShoeToCart(shoe),
+                return GameTile(
+                  game: game,
+                  onTap: () => addShoeToCart(game),
                 );
               },
             ),

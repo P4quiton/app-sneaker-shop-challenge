@@ -17,9 +17,10 @@ class IntroPage extends StatelessWidget {
               // logo
               Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'lib/images/nike.png',
-                  height: 240,
+                child: const Icon(
+                  Icons.sports_esports,
+                  size: 180,
+                  color: Colors.deepPurpleAccent,
                 ),
               ),
           
@@ -27,7 +28,7 @@ class IntroPage extends StatelessWidget {
           
               // title
               const Text(
-                'Just Do It',
+                'GameZone',
                 style:  TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
@@ -38,7 +39,7 @@ class IntroPage extends StatelessWidget {
           
               // sub title
               const Text(
-                'Brand new sneaker and custom kicks made with premium quality',
+                'Encuentra videojuegos para todos los gustos',
                 style:  TextStyle(
                   fontSize: 16,
                   color:Colors.grey,
@@ -49,31 +50,23 @@ class IntroPage extends StatelessWidget {
               const SizedBox(height: 48),
 
               //start now button
-              GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[900],
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  padding: const EdgeInsets.all(25),
-                  child: const Center(
-                    child: Text(
-                      'Shop Now',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                      ),
+              FilledButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
                     ),
+                  );
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    'Explorar juegos',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

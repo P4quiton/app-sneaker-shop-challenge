@@ -1,58 +1,58 @@
 import 'package:flutter/material.dart';
+import 'game.dart';
 
-import 'shoe.dart';
 
 class Cart extends ChangeNotifier{
     // list of shoes for sale
-    List<Shoe> shoeShop = [
-        Shoe(
-            name: 'Zoom FREAK',
-            price: '236',
-            description: 'The forward-thinking desing of his latest signature shoe.',
-            imagePath: 'lib/images/ZoomFreak.png',
+    List<Game> shoeShop = [
+        Game(
+            name: 'Halo Campaing Evolved',
+            price: '899',
+            description: 'Vuelve a revivir la primer aventura del Jefe Maestro con nueva jugabilidad y contenido',
+            imagePath: 'lib/images/haloce.jpeg',
         ),
-        Shoe(
-            name: 'Air Jordans',
-            price: '220',
-            description: 'You\'ve got the hops and the speed-lace up in shoes that enhance what you bring to the court',
-            imagePath: 'lib/images/AirJordan.png',
+        Game(
+            name: 'Red Read Redemption 2',
+            price: '599',
+            description: 'En los ultimos compases del Salvaje Oeste, una de las bandas de forajidos más celebres intenta sobrevivir al avance de la civilización',
+            imagePath: 'lib/images/rdr2.jpeg',
         ),
-        Shoe(
-            name: 'KD Treys',
-            price: '240',
-            description: 'A secure midfoot strap is suited for scoring binges and defensive stands, so that you can lock in and keep winning.',
-            imagePath: 'lib/images/KDTREY.png',
+        Game(
+            name: 'Nier: Automata',
+            price: '599',
+            description: 'En un futuro muy lejano, los androides tienen una guerra contra las maquinas, enviadas por alienigenas para extinguir a la humanidad',
+            imagePath: 'lib/images/nierAutomata.jpeg',
         ),
-        Shoe(
-            name: 'Kyrie 6',
-            price: '190',
-            description: 'Bouncy cushioning paired with soft yet supportive foam gives running shoes a springy, comfortable feel that absorbs impact while propelling you forward',
-            imagePath: 'lib/images/Kyrie.png',
+        Game(
+            name: 'The Witcher 3',
+            price: '499',
+            description: 'El brujo Geralt de Rivia intenta encontrar al amor de su vida y a su hija, recordando su pasado en el camino',
+            imagePath: 'lib/images/theWitcher3.jpeg',
         )
     ];
 
     // list of items in user cart
-    List<Shoe> userCart = [];
+    List<Game> userCart = [];
 
     // get list of shoes for sale
-    List<Shoe> getShoeList(){
+    List<Game> getGameList(){
         return shoeShop;
     }
 
     // get cart
-    List<Shoe> getUserCart(){
+    List<Game> getUserCart(){
         return userCart;
     }
 
     // add items to cart
-    void addItemToCart(Shoe shoe){
-        userCart.add(shoe);
+    void addItemToCart(Game game){
+        userCart.add(game);
         notifyListeners();
     }
 
     // remove item from cart
-    void removeItemFromCart(Shoe shoe){
-        userCart.remove(shoe);
+    void removeItemFromCart(Game game){
+        userCart.remove(game);
         notifyListeners();
     }
 }
